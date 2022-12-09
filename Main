@@ -53,10 +53,10 @@ local Humanoid = Character.Humanoid
 print('Godmode working.')
  
 Humanoid.MaxHealth = 999999
-Humanoid.Health = Humanoid.MaxHealth / 10
+Humanoid.Health = Humanoid.MaxHealth / 1
  
 Humanoid.HealthChanged:connect(function()
-    if Humanoid.Health < 5 then
+    if Humanoid.Health < 2 then
         Humanoid.Health = Humanoid.MaxHealth
     end
 end)
