@@ -1,7 +1,8 @@
 if game.PlaceId == 155615604 then
     local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+    local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jxereas/UI-Libraries/main/notification_gui_library.lua", true))()
     local Window = Library.CreateLib("Prison Life", "GrapeTheme")
-    -- MAIN
+
     local Main = Window:NewTab("Main")
     local MainSection = Main:NewSection("Main")
  
@@ -10,8 +11,8 @@ if game.PlaceId == 155615604 then
         local Event = game:GetService("Workspace").Remote.ItemHandler
         Event:InvokeServer(A_1)
     end)
- 
-     -- Mod
+    
+    
     local Mod = Window:NewTab("Mod")
     local ModSection = Mod:NewSection("Mod")
  
@@ -34,8 +35,43 @@ if game.PlaceId == 155615604 then
             module["AutoFire"] = true
         end
     end)
+    
+ModSection:NewToggle("God Mode", "Makes You Unkillable", function(state)
+    if state then
 
-    -- PLAYER
+print("Toggle On")
+
+Notification.new("success", "God Mode Enabled", "Success")
+
+
+local notif = Notification.new("success", "God Mode Enabled", "Success")
+
+local Player = game.Players.LocalPlayer
+local Character = Player.Character
+local Humanoid = Character.Humanoid
+ 
+print('Godmode working.')
+ 
+Humanoid.MaxHealth = 999999
+Humanoid.Health = Humanoid.MaxHealth / 2
+ 
+Humanoid.HealthChanged:connect(function()
+    if Humanoid.Health < 10 then
+        Humanoid.Health = Humanoid.MaxHealth
+    end
+end)
+
+notif:deleteTimeout(3)
+notif:delete()
+
+    else
+
+print("Toggle Off")
+
+    end
+end)
+
+   
     local Player = Window:NewTab("Player")
     local PlayerSection = Player:NewSection("Player")
  
@@ -48,12 +84,20 @@ if game.PlaceId == 155615604 then
     end)
 
     
-    --Info
+
     local Info = Window:NewTab("Info")
     local InfoSection = Info:NewSection("Info")
     
     InfoSection:NewLabel("https://discord.gg/tu4hptt3JN (Discord)")
     InfoSection:NewLabel("Made By Vincenzo")
         InfoSection:NewLabel("Supported Game Prison Life")
+Notification.new("success", "Success Execution", "Success Execution")
+
+
+local notif = Notification.new("success", "Success", "Success body message.")
+
+notif:deleteTimeout(3)
+notif:delete()
+
 end
     
